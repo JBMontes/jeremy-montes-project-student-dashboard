@@ -1,9 +1,19 @@
+import StudentList from "./Components/StudentList";
+import Header from "./Components/Header.jsx";
+import data from "./data/data.json"
 
 function App() {
+
+
   return (
     <div>
-      <h1>Student Dashboard</h1>
-      Hey
+   
+      <Header />
+      
+      <StudentList
+      data={data} />
+
+
     </div>
   );
 }
