@@ -6,7 +6,7 @@
  
 }
 
-.student{
+.students{
     border: 2px solid mediumaquamarine;
     display:flex;
     flex-direction: column;
