@@ -1,0 +1,19 @@
+.studentList{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+ 
+}
+
+.student{
+    border: 2px solid mediumaquamarine;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+span{
+    color: mediumaquamarine
+}
