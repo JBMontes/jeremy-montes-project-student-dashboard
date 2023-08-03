@@ -4,10 +4,9 @@ import "../Components/StudentList.css"
 import OnTrackStatus from "./OnTrackStatus.jsx";
 
 
-function StudentList({data}){
+function StudentList({data,changeButtonText,isButtonPressed,setIsButtonPressed,ShowMoreStudentDetail}){
 
 
-  
 return (
 <div className="studentList">
 {data.map((students)=>{
@@ -22,6 +21,16 @@ return (
         <OnTrackStatus
         data={data} 
         students={students}/>
+
+       <br />
+       
+       <button onClick={()=>{
+
+        setIsButtonPressed(!isButtonPressed)
+        ShowMoreStudentDetail()
+
+       }} >{changeButtonText}</button>
+
        </div>
       )
      }) }

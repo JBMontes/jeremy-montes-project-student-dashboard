@@ -7,11 +7,11 @@ function OnTrackStatus({ data, students }) {
              students.certifications.resume === true) &&
             (students.codewars.current.total > 600)) {
             return (
-                <h3><span> On-Track</span></h3>
+                <h3><span> On-Track To Graduate</span></h3>
             )
         } else {
             return (
-                <h3><span> Off-Track</span></h3>
+                <h3><span> Off-Track To Graduate</span></h3>
             )
         }
     }
