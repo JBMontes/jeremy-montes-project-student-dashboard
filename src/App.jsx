@@ -1,35 +1,24 @@
 import StudentList from "./Components/StudentList";
 import Header from "./Components/Header.jsx";
 import { useState } from "react";
-import data from "./data/data.json"
+import CohortList from "./Components/CohortList.jsx";
+
 
 function App() {
 
-const [changeButtonText,setChangeButtonText]= useState("Show More")
-const [isButtonPressed, setIsButtonPressed]= useState(false)
-  
-function ShowMoreStudentDetail(){
-if(isButtonPressed === false){
-    setChangeButtonText("Show Less")
-}else{ 
-    setChangeButtonText("Show More")
-}}
+  const [listBySeason, setListBySeason] = useState(StudentList())
 
   return (
-    <div>
-   
-      <Header />
+    <>
+    <Header />
+  
+<CohortList className="cohortList"  />
 
-      <StudentList
-      data={data}
-      changeButtonText={changeButtonText}
-      isButtonPressed={isButtonPressed}
-      setIsButtonPressed={setIsButtonPressed}
-      ShowMoreStudentDetail={ShowMoreStudentDetail}
-      />
+ <StudentList />
 
-    </div>
+    </>
   );
 }
+
 
 export default App;

@@ -1,0 +1,16 @@
+.cohortList{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size:x-large;
+    padding: 4px;
+}
+
+li{
+  
+    list-style-type:none;
+    border-bottom: 2px solid black ;
+   text-align: center;
+   padding: 13px;
+}
+

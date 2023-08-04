@@ -1,10 +1,9 @@
-function OnTrackStatus({ data, students }) {
-
+function OnTrackStatus({ students }) {
     {
         if ((students.certifications.github &&
             students.certifications.linkedin &&
             students.certifications.mockInterview &&
-             students.certifications.resume === true) &&
+            students.certifications.resume === true) &&
             (students.codewars.current.total > 600)) {
             return (
                 <h3><span> On-Track To Graduate</span></h3>
@@ -16,4 +15,5 @@ function OnTrackStatus({ data, students }) {
         }
     }
 }
+
 export default OnTrackStatus
