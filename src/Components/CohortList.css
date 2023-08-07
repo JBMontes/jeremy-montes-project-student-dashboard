@@ -1,10 +1,10 @@
-.cohortList{
+/* .cohortList{
     display:flex;
-    align-items: center;
+    align-items:flex-start;
     justify-content: center;
     font-size:x-large;
     padding: 4px;
-}
+} */
 
 li{
   
@@ -14,3 +14,21 @@ li{
    padding: 13px;
 }
 
+.cohortList{
+    padding:2px;
+    display:grid;
+    grid-template-columns: .5fr .8fr;
+}
+
+.cohortList ul{
+    border: 3px solid black;
+    text-align: center; 
+}
+
+.studentCount{
+
+    text-align: center;
+    font-size: xx-large;
+    font-family: monospace;
+    font-weight: 600;
+}
