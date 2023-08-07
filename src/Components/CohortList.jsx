@@ -2,6 +2,7 @@ import data from "../data/data.json";
 import { useState } from "react";
 import "../Components/CohortList.css";
 import StudentList from "./StudentList.jsx";
+import StudentCard from "./StudentCard.jsx";
 
 
 function CohortList() {
@@ -9,37 +10,62 @@ function CohortList() {
 
     // Holds the all data
     const [selectedCohort, setSelectedCohort] = useState(data);
+
     
     // Holds cohort semester
     const [season, setSeason] = useState(selectedCohort);
 
+    // creates array of filtered cohort
     let filter = selectedCohort.filter(
-        (semester) => semester.cohort.cohortCode === season);
-    
+        (semester) => semester.cohort.cohortCode === season).map((students)=>{
+
+            return(
+                <>
+                <StudentCard students={students} />
+                </>
+            )
+        })
+        
     //Holds filtered Cohort
     const [filteredCohort, setFilteredCohort] = useState(filter);
-
-    //Holds Student List Component    
-  const studentLi =  <StudentList filteredCohort={filteredCohort}/>
-
+ 
     let [showComponent, setShowComponent] = useState([])
 
+    let RenderAllStudents = selectedCohort.map((students)=>{
+
+            return(
+                <>
+             <StudentCard students={students} />
+                </>
+            )
+        })
+    
+    function AllSeason() {
+
+        setShowComponent(RenderAllStudents)
+
+    }
     function ChangeSeason(e) {
         let space = e.target.innerText.replace(" ", "")
+
         setSeason(space)
-        setFilteredCohort(filter)
-        setShowComponent(studentLi)
-        // console.log(filter)
+
+      setShowComponent(filter)
+     
+        console.log(filter)
+        
     }
 
     return (
         <>
             <div className="cohortList">
+                
                 <ul>
                     Choose a Class By Start Date
                     <li
                         onClick={() => {
-                            console.log(selectedCohort);
+
+                            AllSeason();
                         }}
                     >
                         All Students
@@ -102,7 +128,6 @@ function CohortList() {
             </div>
 
             <div className="studentCard">
-              
                 {showComponent}
 
             </div>
