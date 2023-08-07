@@ -2,62 +2,56 @@ import data from "../data/data.json";
 import { useState } from "react";
 import "../Components/CohortList.css";
 import StudentCard from "./StudentCard.jsx";
-
+import Form from "./CommenterForm.jsx";
+import CommenterForm from "./CommenterForm.jsx";
 
 function CohortList() {
 
     //Holds Student Cohort
     const [cohortYear, setCohortYear] = useState("All Students")
 
-    // Holds the all data
-    const [selectedCohort, setSelectedCohort] = useState(data);
-
-    let totalAllStudents = selectedCohort.length
-
-    //Holds Amount of student
-    const [studentAmount, setStudentAmount] = useState(totalAllStudents)
+    const [filteredCohortStudents, setFilteredCohortStudents] = useState(data)
 
     // Holds cohort semester
-    const [season, setSeason] = useState(selectedCohort);
+    const [season, setSeason] = useState(filteredCohortStudents);
 
-    // creates array of filtered cohort
-    let filter = selectedCohort.filter(
-        (semester) => semester.cohort.cohortCode === season).map((students) => {
-
-            return (
-                <>
-                    <StudentCard students={students} />
-                </>
-            )
-        })
-
-    let RenderAllStudents = selectedCohort.map((students) => { return (<><StudentCard students={students} /></>) })
+    let RenderAllStudents = data.map((students) => { return (<><StudentCard students={students} /></>) })
 
     //Holds Component in div tag
     let [showComponent, setShowComponent] = useState(RenderAllStudents)
 
+// //Shows All Students
 
-    //Shows All Students
     function AllSeason(e) {
+    setCohortYear(e.target.innerText)
+    setShowComponent(RenderAllStudents)
+    setStudentAmount(RenderAllStudents.length)
+}
+    function handleCohortClick(e) {
 
-        setCohortYear(e.target.innerText)
-        setShowComponent(RenderAllStudents)
-        setStudentAmount(totalAllStudents)
+        // did you click on all students : bring everyone back
+        if (e.target.innerText === "All Students") setFilteredCohortStudents(data), AllSeason() // everyone shows up
 
-    }
-    //Shows Students depending on their cohort year
-    function ChangeSeason(e) {
         let space = e.target.innerText.replace(" ", "")
 
+        const filter = data.filter((student) => student.cohort.cohortCode === space).map((students) => { return (<><StudentCard students={students} /></>) })
+
+        setFilteredCohortStudents(filter)
         setCohortYear(e.target.innerText)
-
-        setSeason(space)
-
         setShowComponent(filter)
-
         setStudentAmount(filter.length)
-
     }
+
+    //Holds student attendance
+    const [studentAmount, setStudentAmount] = useState(RenderAllStudents.length)
+
+    // // //Shows All Students
+    // function AllSeason(e) {
+    //     setCohortYear(e.target.innerText)
+    //     setShowComponent(RenderAllStudents)
+    //     setStudentAmount(RenderAllStudents.length)
+    // }
+
 
     return (
         <>
@@ -68,63 +62,65 @@ function CohortList() {
                     <li
                         onClick={(e) => {
 
-                            AllSeason(e);
+                           
+                            AllSeason(e)
+
                         }}
                     >
                         All Students
                     </li>
                     <li
                         onClick={(e) => {
-                            ChangeSeason(e);
+                            handleCohortClick(e);
                         }}
                     >
                         Winter 2026
                     </li>
                     <li
                         onClick={(e) => {
-                            ChangeSeason(e);
+                            handleCohortClick(e);
                         }}
                     >
                         Fall 2026
                     </li>
                     <li
                         onClick={(e) => {
-                            ChangeSeason(e);
+                            handleCohortClick(e);
                         }}
                     >
                         Summer 2026
                     </li>
                     <li
                         onClick={(e) => {
-                            ChangeSeason(e);
+                            handleCohortClick(e);
                         }}
                     >
                         Spring 2026
                     </li>
                     <li
                         onClick={(e) => {
-                            ChangeSeason(e);
+                            handleCohortClick(e);
                         }}
                     >
                         Winter 2025
                     </li>
                     <li
                         onClick={(e) => {
-                            ChangeSeason(e);
+                            handleCohortClick(e);
                         }}
                     >
                         Fall 2025
                     </li>
                     <li
                         onClick={(e) => {
-                            ChangeSeason(e);
+                            handleCohortClick(e);
                         }}
                     >
                         Summer 2025
                     </li>
                     <li
                         onClick={(e) => {
-                            ChangeSeason(e);
+                            handleCohortClick(e);
                         }}>
                         Spring 2025
                     </li>
@@ -134,7 +130,10 @@ function CohortList() {
 
                     <div className="studentCount"> {cohortYear} <br />Total Students: {studentAmount} </div>
 
+                    {/* Rendering Student Cards */}
                     {showComponent}
+
+
                 </div>
             </div>
 

@@ -1,6 +1,8 @@
 import OnTrackStatus from "./OnTrackStatus.jsx";
+import CommenterForm from "./CommenterForm.jsx";
 import { useState } from "react";
 import "../Components/StudentCard.css"
+
 
 function StudentCard({ students }) {
 
@@ -76,8 +78,11 @@ function StudentCard({ students }) {
 
             </div>
 
-            <div className='extraInfo'> {extraInfo} </div>
+            <CommenterForm studentObj={students} />
 
+            <div className='extraInfo'> {extraInfo} </div>
+           
+             
         </div>
     )
 }
