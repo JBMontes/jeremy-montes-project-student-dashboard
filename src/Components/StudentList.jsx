@@ -1,32 +1,44 @@
 import { useState } from "react";
 import "../Components/StudentList.css"
-import data from "../data/data.json"
 import OnTrackStatus from "./OnTrackStatus.jsx";
-// import AdditionalDetails from "./AdditionalDetails.jsx";
 
 
-function StudentList() {
-
-
-    function symbolForCert(cert) {
-        if (cert === false) {
-            return (<li> ❌ </li>)
-        }
-        return (<li> ✅ </li>)
-    }
-
+function StudentList({filteredCohort}) {
+    
     return (
         
         <div className="studentList">
+            
+            {filteredCohort.map((students) => {
+                
+                const [extraInfo, setExtraInfo] = useState(null)
+                const [changeButtonText, setChangeButtonText] = useState("Show More")
+                const [isButtonPressed, setIsButtonPressed] = useState(true)
 
-            {data.map((students) => {
-
+                
+                function ShowMoreButton() {
+                    if (isButtonPressed === false) {
+                        setExtraInfo(null)
+                        setChangeButtonText("Show More")
+                    } else if (isButtonPressed === true) {
+                        setExtraInfo(StudentDetail())
+                        setChangeButtonText("Show Less")
+                    }
+                }
+                
                 let percentage = Math.trunc((students.codewars.current.total / students.codewars.goal.total) * 100)
-
+                
                 function StudentDetail() {
+                    
+                    function symbolForCert(cert) {
+                        if (cert === false) {
+                            return <> ❌ </>
+                        }
+                        return <> ✅ </>
+                    }
 
                     return (
-                        <div>
+                        <div className="studentDetail">
                             <ul>CodeWars:
                                 <li>Current Total: {students.codewars.current.total} </li>
                                 <li>Last Week: {students.codewars.current.lastWeek}</li>
@@ -38,8 +50,7 @@ function StudentList() {
                                 <li>{(students.cohort.scores.projects) * 100} %</li>
                                 <li>{(students.cohort.scores.assessments) * 100} %</li>
                             </ul>
-                            <ul>Certifications
-
+                            <ul>Certifications:
                                 <li>Resume:{symbolForCert(students.certifications.resume)}</li>
                                 <li>LinkedIn: {symbolForCert(students.certifications.linkedin)}</li>
                                 <li>Github: {symbolForCert(students.certifications.github)}</li>
@@ -47,21 +58,6 @@ function StudentList() {
                             </ul>
                         </div>
                     )
-                }
-
-                const [changeButtonText, setChangeButtonText] = useState("Show More")
-                const [isButtonPressed, setIsButtonPressed] = useState(true)
-                const [extraInfo, setExtraInfo] = useState(null)
-
-                //ternary (use semi colon for multiple conditions)or factor ; 
-                function ShowMoreButton() {
-                    if (isButtonPressed === false) {
-                        setExtraInfo(null)
-                        setChangeButtonText("Show More")
-                    } else if (isButtonPressed === true) {
-                        setExtraInfo(StudentDetail())
-                        setChangeButtonText("Show Less")
-                    }
                 }
 
                 return (
@@ -73,12 +69,11 @@ function StudentList() {
 
                         <OnTrackStatus 
                         className="onTrackStatus"
-                            data={data}
-                            students={students} />
+                        students={students} />
 
                         <div className="button">
 
-                            <button key={students.id} id={students.id} onClick={(e) => {
+                            <button key={students.id} id={students.id} onClick={() => {
 
                                 setIsButtonPressed(!isButtonPressed)
                                 ShowMoreButton()
@@ -108,15 +103,3 @@ export default StudentList
 
 
 
-
-// const [changeButtonText, setChangeButtonText] = useState("Show More")
-// const [isButtonPressed, setIsButtonPressed] = useState(false)
-
-
-// function ShowMoreButton() {
-//     if (isButtonPressed === false) {
-//         setChangeButtonText("Show Less")
-//     } else {
-//         setChangeButtonText("Show More")
-//     }
-// }
