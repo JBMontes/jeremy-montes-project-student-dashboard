@@ -7,7 +7,7 @@ function CommenterForm({studentObj}){
     const [studentNotes, setStudentNotes] = useState(studentObj.notes)
     const [commenterNameForForm, setCommenterNameForForm] = useState("")
     const [commentForForm, setCommentForForm] = useState("")
-    // const [newNote, setNewNote] = useState([])
+   
     // we want to update it with the form :  setStudentNotes(  [ ...studentNotes, newNote ]  )
 
    const renderStudentNotes = studentNotes.map( (eachNote, index) => {
@@ -15,6 +15,15 @@ function CommenterForm({studentObj}){
         return( <li key={`note-${index}`}> {eachNote.commenter} says, "{eachNote.comment}" </li> )
     }
     )
+    
+function HandleInput(){
+    let newNote = {
+
+        commenter: commenterNameForForm,
+        comment: commentForForm
+    }
+    studentNotes.push(newNote)
+}
 
     return(
         <div className="forms">
@@ -22,8 +31,9 @@ function CommenterForm({studentObj}){
      <h3>1-on1 Notes</h3>
 
         <form onSubmit={(e) => {
-                e.preventDefault();       
-                setStudentNotes([...studentNotes,commenterNameForForm])
+                e.preventDefault();     
+                HandleInput()
+                setStudentNotes([...studentNotes])
                 setCommentForForm("")
                 setCommenterNameForForm("")
             }}>
