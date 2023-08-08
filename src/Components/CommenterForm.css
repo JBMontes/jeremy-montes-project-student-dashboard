@@ -1,0 +1,21 @@
+/* .form{
+display:flex;
+flex-direction: column;
+
+} */
+
+form{
+    display:flex;
+flex-direction: row;
+align-items: center;
+align-content: center;
+
+}
+
+h3{
+    text-align: center;
+}
+
+label{
+    padding:10px
+}

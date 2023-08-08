@@ -17,20 +17,20 @@ function CohortList() {
 
     let RenderAllStudents = data.map((students) => { return (<><StudentCard students={students} /></>) })
 
-    //Holds Component in div tag
+    //Holds StudentCard Component in div tag
     let [showComponent, setShowComponent] = useState(RenderAllStudents)
 
-// //Shows All Students
-
+    //Renders All Students,Cohort Year, and student count
     function AllSeason(e) {
     setCohortYear(e.target.innerText)
     setShowComponent(RenderAllStudents)
     setStudentAmount(RenderAllStudents.length)
 }
+
     function handleCohortClick(e) {
 
         // did you click on all students : bring everyone back
-        if (e.target.innerText === "All Students") setFilteredCohortStudents(data), AllSeason() // everyone shows up
+        if (e.target.innerText === "All Students") setFilteredCohortStudents(data) // everyone shows up
 
         let space = e.target.innerText.replace(" ", "")
 
@@ -44,13 +44,6 @@ function CohortList() {
 
     //Holds student attendance
     const [studentAmount, setStudentAmount] = useState(RenderAllStudents.length)
-
-    // // //Shows All Students
-    // function AllSeason(e) {
-    //     setCohortYear(e.target.innerText)
-    //     setShowComponent(RenderAllStudents)
-    //     setStudentAmount(RenderAllStudents.length)
-    // }
 
 
     return (

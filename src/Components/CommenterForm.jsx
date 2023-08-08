@@ -1,38 +1,44 @@
 import { useState } from "react"
+import "../Components/CommenterForm.css";
 
 function CommenterForm({studentObj}){
 
     
-    // const [commenterNameForForm, setCommenterNameForForm] = useState("")
-
     const [studentNotes, setStudentNotes] = useState(studentObj.notes)
+    const [commenterNameForForm, setCommenterNameForForm] = useState("")
+    const [commentForForm, setCommentForForm] = useState("")
+    // const [newNote, setNewNote] = useState([])
     // we want to update it with the form :  setStudentNotes(  [ ...studentNotes, newNote ]  )
 
-    const renderStudentNotes = studentNotes.map( (eachNote, index) => {
-        // console.log(eachNote)
+   const renderStudentNotes = studentNotes.map( (eachNote, index) => {
+    
         return( <li key={`note-${index}`}> {eachNote.commenter} says, "{eachNote.comment}" </li> )
     }
     )
 
     return(
-        <>
+        <div className="forms">
 
-        <label>1-on-1 Notes
+     <h3>1-on1 Notes</h3>
 
-
-        <form> 
+        <form onSubmit={(e) => {
+                e.preventDefault();       
+                setStudentNotes([...studentNotes,commenterNameForForm])
+                setCommentForForm("")
+                setCommenterNameForForm("")
+            }}>
        
         <label> Commenter Name
-        <input type="text" />
+        <input type="text" value={commenterNameForForm} onChange={(e)=>{setCommenterNameForForm(e.target.value)}}  />
         </label>
         <label>Comment
-        <input type="text" />
+        <input type="text" value={commentForForm} onChange={(e)=>{setCommentForForm(e.target.value)}} />
         </label>
         <label>
         <input type="submit" />
         </label>
         </form>
-        </label>
+       
 
         <hr/>
 
@@ -40,7 +46,7 @@ function CommenterForm({studentObj}){
                 {renderStudentNotes}
             </div>
     
-        </>
+        </div>
      
     )
 }
