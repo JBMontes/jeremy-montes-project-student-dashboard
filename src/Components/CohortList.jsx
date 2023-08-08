@@ -22,10 +22,10 @@ function CohortList() {
 
     //Renders All Students,Cohort Year, and student count
     function AllSeason(e) {
-    setCohortYear(e.target.innerText)
-    setShowComponent(RenderAllStudents)
-    setStudentAmount(RenderAllStudents.length)
-}
+        setCohortYear(e.target.innerText)
+        setShowComponent(RenderAllStudents)
+        setStudentAmount(RenderAllStudents.length)
+    }
 
     function handleCohortClick(e) {
 
@@ -55,7 +55,7 @@ function CohortList() {
                     <li
                         onClick={(e) => {
 
-                           
+
                             AllSeason(e)
 
                         }}

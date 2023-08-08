@@ -81,8 +81,8 @@ function StudentCard({ students }) {
             <CommenterForm studentObj={students} />
 
             <div className='extraInfo'> {extraInfo} </div>
-           
-             
+
+
         </div>
     )
 }
