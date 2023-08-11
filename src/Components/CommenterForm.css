@@ -5,7 +5,7 @@ flex-direction: column;
 } */
 
 form{
-    display:flex;
+display:flex;
 flex-direction: row;
 align-items: center;
 align-content: center;
@@ -27,4 +27,8 @@ label{
 
 .submitButton:hover{
     background-color: rgb(85, 245, 136);
+}
+
+.renderedNotes{
+    text-align: center;
 }

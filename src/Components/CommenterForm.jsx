@@ -52,7 +52,7 @@ function CommenterForm({ studentObj }) {
 
             <hr />
 
-            <div>
+            <div className="renderedNotes">
                 {renderStudentNotes}
             </div>
 
