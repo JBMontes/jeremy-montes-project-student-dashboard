@@ -1,27 +1,28 @@
-/* .cohortList{
-    display:flex;
-    align-items:flex-start;
-    justify-content: center;
-    font-size:x-large;
-    padding: 4px;
-} */
 
-li{
+
+.cohortL li{
   
     list-style-type:none;
-    border-bottom: 2px solid black ;
+border-bottom: 2px solid black ;
    text-align: center;
    padding: 13px;
+   display:flex;
+   align-items: center;
+   justify-content: center;
+   position:relative;
+   left: -20px;
+
 }
 
 .cohortList{
     padding:2px;
     display:grid;
     grid-template-columns: .5fr .8fr;
+    gap: 50px;
+    
 }
 
 .cohortList ul{
-    /* border: 3px solid black; */
     text-align: center; 
 }
 
@@ -31,4 +32,17 @@ li{
     font-size: xx-large;
     font-family: monospace;
     font-weight: 600;
+}
+
+.cohortL{
+    border: 2px solid black;
+    position: relative;
+    top: 62px;
+    height: 490px;
+    /* position:sticky; */
+    
+}
+
+.cohortL li:hover{
+background-color: rgb(51, 167, 111);
 }

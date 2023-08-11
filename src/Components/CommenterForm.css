@@ -19,3 +19,12 @@ h3{
 label{
     padding:10px
 }
+
+.submitButton{
+    border-radius: 45px;
+    background-color: burlywood;
+}
+
+.submitButton:hover{
+    background-color: rgb(85, 245, 136);
+}

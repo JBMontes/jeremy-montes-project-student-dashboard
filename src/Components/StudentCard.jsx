@@ -82,7 +82,6 @@ function StudentCard({ students }) {
 
             <div className='extraInfo'> {extraInfo} </div>
 
-
         </div>
     )
 }

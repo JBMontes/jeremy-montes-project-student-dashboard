@@ -25,3 +25,17 @@ span{
 .studentDetail ul li{
     border-bottom: none;
 }
+
+button{
+    border-radius: 45px;
+    background-color: burlywood;
+}
+
+button:hover{
+    background-color: rgb(62, 215, 139);
+}
+
+.extraInfo li{
+    list-style-type:none;
+    padding: 10px;
+}

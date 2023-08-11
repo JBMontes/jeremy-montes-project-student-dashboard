@@ -45,7 +45,7 @@ function CommenterForm({ studentObj }) {
                     <input type="text" value={commentForForm} onChange={(e) => { setCommentForForm(e.target.value) }} />
                 </label>
                 <label>
-                    <input type="submit" />
+                    <input className="submitButton" type="submit" />
                 </label>
             </form>
 

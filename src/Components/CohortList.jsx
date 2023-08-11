@@ -45,80 +45,81 @@ function CohortList() {
     //Holds student attendance
     const [studentAmount, setStudentAmount] = useState(RenderAllStudents.length)
 
-
     return (
         <>
             <div className="cohortList">
 
-                <ul>
-                    Choose a Class By Start Date
-                    <li
-                        onClick={(e) => {
+                <div className="cohortL">
+                    <ul>
+                        Choose a Class By Start Date
+                        <li
+                            onClick={(e) => {
 
+                                AllSeason(e)
 
-                            AllSeason(e)
+                            }}
+                        >
+                            All Students
+                        </li>
+                        <li
+                            onClick={(e) => {
 
-                        }}
-                    >
-                        All Students
-                    </li>
-                    <li
-                        onClick={(e) => {
-                            handleCohortClick(e);
-                        }}
-                    >
-                        Winter 2026
-                    </li>
-                    <li
-                        onClick={(e) => {
-                            handleCohortClick(e);
-                        }}
-                    >
-                        Fall 2026
-                    </li>
-                    <li
-                        onClick={(e) => {
-                            handleCohortClick(e);
-                        }}
-                    >
-                        Summer 2026
-                    </li>
-                    <li
-                        onClick={(e) => {
-                            handleCohortClick(e);
-                        }}
-                    >
-                        Spring 2026
-                    </li>
-                    <li
-                        onClick={(e) => {
-                            handleCohortClick(e);
-                        }}
-                    >
-                        Winter 2025
-                    </li>
-                    <li
-                        onClick={(e) => {
-                            handleCohortClick(e);
-                        }}
-                    >
-                        Fall 2025
-                    </li>
-                    <li
-                        onClick={(e) => {
-                            handleCohortClick(e);
-                        }}
-                    >
-                        Summer 2025
-                    </li>
-                    <li
-                        onClick={(e) => {
-                            handleCohortClick(e);
-                        }}>
-                        Spring 2025
-                    </li>
-                </ul>
+                                handleCohortClick(e);
+                            }}
+                        >
+                            Winter 2026
+                        </li>
+                        <li
+                            onClick={(e) => {
 
+                                handleCohortClick(e);
+                            }}
+                        >
+                            Fall 2026
+                        </li>
+                        <li
+                            onClick={(e) => {
+                                handleCohortClick(e);
+                            }}
+                        >
+                            Summer 2026
+                        </li>
+                        <li
+                            onClick={(e) => {
+                                handleCohortClick(e);
+                            }}
+                        >
+                            Spring 2026
+                        </li>
+                        <li
+                            onClick={(e) => {
+                                handleCohortClick(e);
+                            }}
+                        >
+                            Winter 2025
+                        </li>
+                        <li
+                            onClick={(e) => {
+                                handleCohortClick(e);
+                            }}
+                        >
+                            Fall 2025
+                        </li>
+                        <li
+                            onClick={(e) => {
+                                handleCohortClick(e);
+                            }}
+                        >
+                            Summer 2025
+                        </li>
+                        <li
+                            onClick={(e) => {
+                                handleCohortClick(e);
+                            }}>
+                            Spring 2025
+                        </li>
+                    </ul>
+                </div>
                 <div className="studentCard">
 
                     <div className="studentCount"> {cohortYear} <br />Total Students: {studentAmount} </div>

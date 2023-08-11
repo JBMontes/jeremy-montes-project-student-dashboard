@@ -5,3 +5,19 @@
     align-items: center;
     background-color: mediumaquamarine;
 }
+
+h1{
+    position:relative;
+    animation-name: header;
+    animation-duration: 4s;
+
+}
+
+@keyframes header {
+    from{
+        left: -1000px
+    }
+    to{
+        left:0px
+    }
+}
