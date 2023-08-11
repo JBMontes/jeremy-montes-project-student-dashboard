@@ -51,7 +51,7 @@ function CohortList() {
 
                 <div className="cohortL">
                     <ul>
-                        Choose a Class By Start Date
+                      <span className="coHeader"> Choose a Class By Start Date </span> 
                         <li
                             onClick={(e) => {
 

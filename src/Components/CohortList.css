@@ -46,3 +46,10 @@ border-bottom: 2px solid black ;
 .cohortL li:hover{
 background-color: rgb(51, 167, 111);
 }
+
+.coHeader{
+
+    font-size: 20px;
+    font-family: monospace;
+   
+}
